@@ -26,7 +26,7 @@ void main(void)
     int NombrePin = 1 ;
     int TableauPin[4] = {ledPin1} ;
     char TableauModeInit[4] = {OUTPUT} ;
-    char TableauModeAct[2] = {HIGH};  
+    char TableauModeAct[2] = {HIGH,LOW};  
 
     // Start the Programme
     printf("Program is starting ... \n");
@@ -47,10 +47,6 @@ void main(void)
         LEDcfg(&TableauPin[i],&TableauModeInit[i]);
     }
 
-    /*
-     *  Allule la led :
-    */
-    ActivePin(&TableauPin[0],&TableauModeAct[0]);
 
 
     /* 
@@ -58,7 +54,10 @@ void main(void)
     */
     while(1)
     {
-
+        ActivePin(&TableauPin[0],&TableauModeAct[0]);
+        delay(1000);
+        ActivePin(&TableauPin[0],&TableauModeAct[1]);
+        delay(1000);
     }
 }
 
